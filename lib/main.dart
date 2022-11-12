@@ -4,7 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:hackutd9/screens/feed.dart';
 import 'package:hackutd9/screens/friends.dart';
 import 'package:hackutd9/screens/nearby.dart';
-import 'package:hackutd9/widgets/home_floating_button.dart';
+import 'package:hackutd9/widgets/feed_floating_button.dart';
+import 'package:hackutd9/widgets/friend_floating_button.dart';
 import 'firebase_options.dart';
 
 const String email = 'something@email.com';
@@ -57,12 +58,17 @@ class _MyHomePageState extends State<MyHomePage> {
     Nearby(),
     Friends(),
   ];
+  final List<Widget?> _pageFloatingButtons = [
+    FeedFloatingButton(),
+    null,
+    FriendFloatingButton(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pageBodies[_pageIndex],
-      floatingActionButton: HomeFloatingButton(),
+      floatingActionButton: _pageFloatingButtons[_pageIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _pageIndex,
         selectedItemColor: Theme.of(context).primaryColor,
