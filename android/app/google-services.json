@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "307041645153",
+    "project_id": "community-deals",
+    "storage_bucket": "community-deals.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307041645153:android:1cd2bbfceb824ab2c87020",
+        "android_client_info": {
+          "package_name": "com.example.hackutd9"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "307041645153-e5jbvbtvivp2hqe2jhjc3obus8v9mokq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFcTaAvFJ9JGCheZhYSnflxri4wkCxBWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307041645153-e5jbvbtvivp2hqe2jhjc3obus8v9mokq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
