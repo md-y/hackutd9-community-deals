@@ -36,36 +36,43 @@ class _Feed extends State<Feed> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 253, 235, 218),
       appBar: AppBar(
-        elevation: 0,
-        title: const Text('Recommended \nFor You'),
-        centerTitle: true,
-        titleTextStyle: TextStyle(fontSize: 30, fontFamily: 'BoldMontserrat', fontWeight: FontWeight.bold,
-        color: Color.fromARGB(255, 138, 105, 81)),
-        backgroundColor: Color.fromARGB(255, 253, 235, 218),
-        actions: [
-          IconButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (ctx) {
-                  return MultiSelectDialog(
-                    items: Categories.values
-                        .map((cat) => MultiSelectItem(cat, cat.toUpperCase()))
-                        .toList(),
-                    initialValue: _selectedCategories,
-                    onConfirm: (values) {
-                      setState(() {
-                        _selectedCategories = values;
-                      });
-                    },
-                  );
-                },
-              );
-            },
-            icon: const Icon(Icons.sort, color: Colors.brown, size: 35),
-          )
-        ],
-      ),
+        toolbarHeight: 120,
+          elevation: 0,
+          flexibleSpace: Padding(
+            padding: const EdgeInsets.fromLTRB(40, 70, 40, 0),
+            child: const Text(
+                'Recommended \nFor You',
+              style: TextStyle(fontSize: 30, fontFamily: 'BoldMontserrat', fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 138, 105, 81)),
+
+            ),
+          ),
+
+          backgroundColor: Color.fromARGB(255, 253, 235, 218),
+          actions: [
+            IconButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (ctx) {
+                    return MultiSelectDialog(
+                      items: Categories.values
+                          .map((cat) => MultiSelectItem(cat, cat.toUpperCase()))
+                          .toList(),
+                      initialValue: _selectedCategories,
+                      onConfirm: (values) {
+                        setState(() {
+                          _selectedCategories = values;
+                        });
+                      },
+                    );
+                  },
+                );
+              },
+              icon: const Icon(Icons.sort, color: Colors.brown, size: 35),
+            )
+          ],
+        ),
       body: ListView(
         children: [
 
