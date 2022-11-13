@@ -69,7 +69,7 @@ class _Card2 extends State<Card2> {
                         "${widget.deal.item}",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 28,
+                          fontSize: 25,
                           color: Colors.white,
                         )
                     )
@@ -80,8 +80,7 @@ class _Card2 extends State<Card2> {
                     child: Text(
                         "Original Price: \$${widget.deal.price.toString()}",
                         style: TextStyle(
-                            fontSize: 25,
-                            fontFamily: 'BreeSerif',
+                            fontSize: 22,
                             color: Colors.white,
                         )
                     )
@@ -92,7 +91,7 @@ class _Card2 extends State<Card2> {
                     child: Text(
                         "Discount: ${widget.deal.discount}",
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 22,
                           color: Colors.white,
                         )
                     )
