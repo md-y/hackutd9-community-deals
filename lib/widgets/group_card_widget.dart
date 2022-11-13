@@ -94,7 +94,19 @@ class _GroupCardWidget extends State<GroupCardWidget> {
                           fontSize: 25,
                         )
                     )
-                )
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  child: SizedBox(
+                    height: 40,
+                    width: 100,
+                    child: ElevatedButton(
+                        onPressed: () => {},
+                        child: Text('Join Order'),
+                    ),
+                  ),
+                ),
+
               ]
           )
 
