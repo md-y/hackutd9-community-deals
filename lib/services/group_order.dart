@@ -3,13 +3,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 typedef Doc = QueryDocumentSnapshot<Map<String, dynamic>>;
 
 class GroupOrder {
-  String merchant, shopper, id;
+  String merchant, shopper, id, discount;
   Map<String, String> orders;
   Timestamp orderDeadline;
 
   GroupOrder({
     required this.id,
     required this.merchant,
+    required this.discount,
     required this.shopper,
     required this.orders,
     required this.orderDeadline,
@@ -26,6 +27,7 @@ class GroupOrder {
       id: doc.id,
       merchant: data['merchant'],
       shopper: data['shopper'],
+      discount: data['discount'],
       orders: stringMap,
       orderDeadline: data['orderDeadline'],
     );
@@ -40,12 +42,14 @@ class GroupOrder {
     required String shopper,
     Map<String, String> orders = const {},
     required Timestamp orderDeadline,
+    required String discount,
   }) async {
     var res = await _getGroupOrderCollection().add({
       'merchant': merchant,
       'shopper': shopper,
       'orders': orders,
-      'orderDeadline': orderDeadline
+      'orderDeadline': orderDeadline,
+      'discount': discount
     });
     return GroupOrder(
       id: res.id,
@@ -53,6 +57,7 @@ class GroupOrder {
       shopper: shopper,
       orders: orders,
       orderDeadline: orderDeadline,
+      discount: discount,
     );
   }
 
