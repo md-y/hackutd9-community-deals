@@ -4,13 +4,17 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project was developed by Samuel Preston, Safa Mohammed, Kara Ng, and Fatima Khalid
 
-A few resources to get you started if this is your first Flutter project:
+Description:
+Community Deals is an app for the everyday consumer. People who love to shop, 
+people who want to shop, people who need to shop. This app aids users in their shopping 
+experience by doing two things:
+1. Provides users with a feed of discount in stores within a chosen location.
+2. It allows you to communicate with friends/trusted peers to take advantage on deals that may be available to a specific person.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+To further expand on point 2 using an example --> a user posts that they are about to make an order at a specific site.
+Other trusted users/friends can also buy something in the same order and pay the user back through the app. 
+This allows them to save on shipping costs and other extraneous fees as well as take advantage of a certain personalized discount.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Implements the use of the Capitak One Nessie API, the Google Maps API, and Firebase API, and PlotRewards API.
