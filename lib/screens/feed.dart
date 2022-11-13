@@ -21,7 +21,7 @@ class _Feed extends State<Feed> {
             appBar: AppBar(
               title: const Text('Your Feed'),
               centerTitle: true,
-              titleTextStyle: TextStyle(fontSize: 25),
+              titleTextStyle: TextStyle(fontSize: 28, fontFamily: 'BreeSerif'),
               backgroundColor: Colors.blue[600],
             ),
             body:
