@@ -47,8 +47,10 @@ class _NearbyState extends State<Nearby> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Maps Sample App'),
-          backgroundColor: Colors.green[700],
+          title: const Text('Nearby Deals'),
+          centerTitle: true,
+          titleTextStyle: TextStyle(fontSize: 25),
+          backgroundColor: Colors.blue[600],
         ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,

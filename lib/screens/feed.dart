@@ -16,7 +16,16 @@ class _Feed extends State<Feed> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(
+              title: const Text('Your Feed'),
+              centerTitle: true,
+              titleTextStyle: TextStyle(fontSize: 25),
+              backgroundColor: Colors.blue[600],
+            ),
+            body:
+     Center(
       child:
         FutureBuilder(future: deals, builder: (context, snapshot)
       {
@@ -29,6 +38,8 @@ class _Feed extends State<Feed> {
         return CircularProgressIndicator();
       }
       })
+    ),
+    ),
     );
   }
 }

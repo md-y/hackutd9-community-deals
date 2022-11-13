@@ -21,14 +21,13 @@ class CardWidget extends StatefulWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-    Column(
-      children: <Widget>[
+
         Container(
             margin: EdgeInsets.fromLTRB(50, 90, 0, 0)
         ),
 
         Container(
-          margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Stack(
             alignment: AlignmentDirectional.center,
             children: <Widget>[
@@ -37,63 +36,69 @@ class CardWidget extends StatefulWidget {
               Icon(
                 Icons.circle,
                 size: 70,
-                color: Color.fromARGB(70,60,200,10),
+                color: Colors.blue[300],
               ),
 
-              // DecoratedIcon(
-              //     icon: Icon(
-              //         Icons.star,
-              //         size: 30,
-              //         color: Colors.yellow
-              //     ),
-              //     decoration: IconDecoration(
-              //         shadows: [Shadow(blurRadius: 20, offset: Offset(1, 0), color: Colors.brown)],
-              //         gradient: LinearGradient(
-              //           begin: Alignment.topCenter,
-              //           end: Alignment.bottomCenter,
-              //           colors: <Color>[
-              //             Color(0xfffaf8f8),
-              //             Color(0xfffae16c),
-              //             Color.fromARGB(128, 250, 148, 75),
-              //           ],
-              //         )
-              //     )
-              // ),
+
+              DecoratedIcon(
+                Icons.star,
+                color: Colors.yellow,
+                size: 30,
+                shadows: [Shadow(blurRadius: 20, offset: Offset(1, 0), color: Colors.brown)],
+              ),
+
 
             ],
           ),
         ),
 
-        SizedBox(
-          width: 225,
-          child: Text(
-            "Price: \$${widget.deal.price.toString()}",
-            style: TextStyle(
-              fontSize: 25,
+        Container(
+            margin: EdgeInsets.fromLTRB(30, 90, 0, 0)
+        ),
+
+        Column(
+          children: <Widget>[
+
+            Column(
+              children: <Widget>[
+                Text(
+                    ' '
+                ),
+              ],
+            ),
+
+            SizedBox(
+                width: 225,
+                child: Text(
+                    "Price: \$${widget.deal.price.toString()}",
+                    style: TextStyle(
+                      fontSize: 25,
+                    )
+                )
+            ),
+            SizedBox(
+                width: 225,
+                child: Text(
+                    "Item: ${widget.deal.item}",
+                    style: TextStyle(
+                      fontSize: 25,
+                    )
+                )
+            ),
+            SizedBox(
+                width: 225,
+                child: Text(
+                    "Discount: ${widget.deal.discount}",
+                    style: TextStyle(
+                      fontSize: 25,
+                    )
+                )
             )
-          )
-        ),
-        SizedBox(
-          width: 225,
-          child: Text(
-            "Item: \$${widget.deal.item}",
-              style: TextStyle(
-                fontSize: 25,
-              )
-          )
-        ),
-        SizedBox(
-          width: 225,
-          child: Text(
-            "Discount: \$${widget.deal.discount}",
-              style: TextStyle(
-                fontSize: 25,
-              )
-          )
+          ]
         )
+
       ]
-    )
-    ]
+
     )
     ;
   }
