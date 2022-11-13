@@ -5,5 +5,7 @@ class Categories {
     'Electronics',
     'Games',
     'Sports',
+    'Clothes',
+    'Beauty',
   ];
 }
