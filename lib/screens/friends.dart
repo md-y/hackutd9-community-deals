@@ -22,13 +22,13 @@ class _FriendsState extends State<Friends> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 253, 235, 218),
-    appBar: AppBar(
-    elevation: 0,
-    title: const Text('Friends'),
-    centerTitle: true,
-    titleTextStyle: TextStyle(fontSize: 30, fontFamily: 'BoldMontserrat', fontWeight: FontWeight.bold,
-    color: Color.fromARGB(255, 138, 105, 81)),
-    backgroundColor: Color.fromARGB(255, 253, 235, 218),
+      appBar: AppBar(
+      elevation: 0,
+      title: const Text('Friends'),
+      centerTitle: true,
+      titleTextStyle: TextStyle(fontSize: 30, fontFamily: 'BoldMontserrat', fontWeight: FontWeight.bold,
+      color: Color.fromARGB(255, 138, 105, 81)),
+      backgroundColor: Color.fromARGB(255, 253, 235, 218),
     ),
 
       body: FutureBuilder(
@@ -38,8 +38,20 @@ class _FriendsState extends State<Friends> {
           return ListView(
             children: snapshot.data!.map((name) {
               return ListTile(
-                title: Text(name),
-                leading: const CircleAvatar(backgroundColor: Colors.amber),
+                contentPadding: EdgeInsets.fromLTRB(20,8,5,8),
+                title: Text(name, style: TextStyle(fontSize: 25)),
+                leading: Container(
+                  margin: const EdgeInsets.fromLTRB(0,2,8,5),
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: NetworkImage('https://googleflutter.com/sample_image.jpg'),
+                          fit: BoxFit.fill
+                      )
+                  ),
+                ),
               );
             }).toList(),
           );
