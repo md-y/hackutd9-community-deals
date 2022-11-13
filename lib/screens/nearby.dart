@@ -96,7 +96,7 @@ class _NearbyState extends State<Nearby> {
               ),
             ),
           ),
-          child: const Icon(Icons.center_focus_strong),
+          child: const Icon(Icons.center_focus_strong, color: Colors.white),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
