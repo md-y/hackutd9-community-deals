@@ -70,4 +70,16 @@ class GroupOrder {
     var docs = res.docs;
     return docs.map((e) => GroupOrder.fromDocument(e)).toList();
   }
+
+  static Future<void> addOrderToGroup(
+    GroupOrder groupOrder,
+    String account,
+    String order,
+  ) async {
+    Map<String, String> orders = groupOrder.orders;
+    orders[account] = order;
+    await _getGroupOrderCollection().doc(groupOrder.id).update({
+      'orders': orders,
+    });
+  }
 }

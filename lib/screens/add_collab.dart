@@ -23,7 +23,7 @@ class _AddCollabState extends State<AddCollab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+      appBar: AppBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _submit(),
         child: const Icon(Icons.save),
@@ -66,7 +66,8 @@ class _AddCollabState extends State<AddCollab> {
               ),
             ],
           ),
-        ),),
+        ),
+      ),
     );
   }
 
@@ -75,7 +76,7 @@ class _AddCollabState extends State<AddCollab> {
     _formKey.currentState!.save();
     var deal = await GroupOrder.addGroupOrder(
       merchant: _merchant,
-      shopper: User.username,
+      shopper: User.account,
       discount: _discount,
       orders: _orders,
       orderDeadline: Timestamp.fromDate(_endDate),

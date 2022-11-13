@@ -28,7 +28,7 @@ class _FriendsState extends State<Friends> {
             children: snapshot.data!.map((name) {
               return ListTile(
                 title: Text(name),
-                leading: const CircleAvatar(backgroundColor: Colors.blue),
+                leading: const CircleAvatar(backgroundColor: Colors.amber),
               );
             }).toList(),
           );

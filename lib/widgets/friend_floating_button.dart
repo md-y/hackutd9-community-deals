@@ -24,7 +24,7 @@ class FriendFloatingButton extends StatelessWidget {
                         children: snapshot.data!.map((transfer) {
                           return ListTile(
                             title: Text(transfer['amount'].toString()),
-                            subtitle: Text(transfer['status']),
+                            subtitle: Text('To account: ${transfer['_id']}'),
                           );
                         }).toList(),
                       ),
