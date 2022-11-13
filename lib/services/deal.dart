@@ -6,16 +6,15 @@ class Deal {
   String id, item, discount, posterName;
   int price;
   List<String> categories;
-  Duration duration;
   GeoPoint location;
-  Timestamp creationTime;
+  Timestamp creationTime, endDate;
 
   Deal({
     required this.id,
     required this.item,
     required this.discount,
     required this.price,
-    required this.duration,
+    required this.endDate,
     required this.location,
     required this.creationTime,
     required this.posterName,
@@ -33,7 +32,7 @@ class Deal {
       categories: listString,
       creationTime: data['creationTime'],
       discount: data['discount'],
-      duration: Duration(minutes: data['duration']),
+      endDate: data['endDate'],
       item: data['item'],
       location: data['location'],
       posterName: data['posterName'],
@@ -48,7 +47,7 @@ class Deal {
   static Future<Deal> addDeal({
     required String item,
     required String discount,
-    required Duration duration,
+    required Timestamp endDate,
     required GeoPoint location,
     required Timestamp creationTime,
     required String posterName,
@@ -58,7 +57,7 @@ class Deal {
     var res = await _getDealCollection().add({
       'item': item,
       'discount': discount,
-      'duration': duration.inMinutes,
+      'endDate': endDate,
       'location': location,
       'creationTime': creationTime,
       'posterName': posterName,
@@ -69,7 +68,7 @@ class Deal {
       id: res.id,
       item: item,
       discount: discount,
-      duration: duration,
+      endDate: endDate,
       location: location,
       creationTime: creationTime,
       posterName: posterName,
@@ -84,9 +83,15 @@ class Deal {
     int? radius,
   }) async {
     var query = _getDealCollection().where(
-      'categories',
-      arrayContainsAny: categories,
+      'endDate',
+      isGreaterThanOrEqualTo: DateTime.now(),
     );
+    if (categories.isNotEmpty) {
+      query = query.where(
+        'categories',
+        arrayContainsAny: categories,
+      );
+    }
     var res = await query.get();
     var docs = res.docs;
 
