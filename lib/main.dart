@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hackutd9/screens/feed.dart';
@@ -8,22 +7,13 @@ import 'package:hackutd9/widgets/feed_floating_button.dart';
 import 'package:hackutd9/widgets/friend_floating_button.dart';
 import 'firebase_options.dart';
 
-const String email = 'something@email.com';
-const String password = 'hunter2';
-const String displayName = 'John Doe';
+const String username = 'John Doe';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  if (FirebaseAuth.instance.currentUser == null) {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-  }
-  await FirebaseAuth.instance.currentUser?.updateDisplayName(displayName);
 
   runApp(const MyApp());
 }
