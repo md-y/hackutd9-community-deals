@@ -17,4 +17,4 @@ To further expand on point 2 using an example --> a user posts that they are abo
 Other trusted users/friends can also buy something in the same order and pay the user back through the app. 
 This allows them to save on shipping costs and other extraneous fees as well as take advantage of a certain personalized discount.
 
-Implements the use of the Capitak One Nessie API, the Google Maps API, and Firebase API, and PlotRewards API.
+Implements the use of the Capital One Nessie API, the Google Maps API, and Firebase API, and PlotRewards API.

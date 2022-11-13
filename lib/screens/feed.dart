@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackutd9/services/categories.dart';
+import 'package:hackutd9/services/group_order.dart';
+import 'package:hackutd9/widgets/group_card_widget.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 import '../services/deal.dart';
@@ -13,8 +15,20 @@ class Feed extends StatefulWidget {
 }
 
 class _Feed extends State<Feed> {
-  late Future<List<Deal>> deals = Deal.getDeals();
+  List<Deal> _deals = [];
+  List<GroupOrder> _groupOrders = [];
   List<String> _selectedCategories = Categories.values;
+
+  @override
+  void initState() {
+    super.initState();
+    Deal.getDeals().then((value) => setState(() {
+      _deals = value;
+    }));
+    GroupOrder.getGroupOrders().then((value) => setState(() {
+      _groupOrders = value;
+    }));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,23 +62,14 @@ class _Feed extends State<Feed> {
           )
         ],
       ),
-      body: Center(
-        child: FutureBuilder(
-          future: deals,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return ListView(
-                children: snapshot.data!
-                    .where((cat) => cat.categories
-                        .any((i) => _selectedCategories.contains(i)))
-                    .map((e) => CardWidget(deal: e))
-                    .toList(),
-              );
-            } else {
-              return CircularProgressIndicator();
-            }
-          },
-        ),
+      body: ListView(
+        children: [
+          Text(_groupOrders.length.toString()),
+          ..._groupOrders.map((e) => GroupCardWidget(groupOrder: e)).toList(),
+          ..._deals.where((cat) =>
+              cat.categories.any((i) => _selectedCategories.contains(i))
+          ).map((e) => CardWidget(deal: e)).toList()
+        ],
       ),
     );
   }
