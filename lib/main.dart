@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'Montserrat',
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.brown,
         scaffoldBackgroundColor: const Color.fromARGB(255, 253, 235, 218)
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -68,17 +68,20 @@ class _MyHomePageState extends State<MyHomePage> {
         }),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 60, color: Colors.blue),
+            icon: Icon(Icons.home, size: 60, color: Color.fromARGB(
+                255, 138, 105, 81)),
             label: 'Feed',
 
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pin_drop, size: 60, color: Colors.blue),
+            icon: Icon(Icons.pin_drop, size: 60, color: Color.fromARGB(
+                255, 138, 105, 81)),
             label: 'Nearby Deals',
 
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people, size: 60, color: Colors.blue),
+            icon: Icon(Icons.people, size: 60, color: Color.fromARGB(
+                255, 138, 105, 81)),
             label: 'Friends',
 
           ),

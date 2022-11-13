@@ -92,6 +92,10 @@ flutter:
       fonts:
           - asset: assets/fonts/Montserrat-Regular.ttf
 
+    - family: BoldMontserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-bold.ttf
+
 
 #    - family: BreeSerif
 #      fonts:

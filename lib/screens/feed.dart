@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackutd9/services/categories.dart';
 import 'package:hackutd9/services/group_order.dart';
+import 'package:hackutd9/widgets/card_version2.dart';
 import 'package:hackutd9/widgets/group_card_widget.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
@@ -33,11 +34,14 @@ class _Feed extends State<Feed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 253, 235, 218),
       appBar: AppBar(
-        title: const Text('Your Feed'),
+        elevation: 0,
+        title: const Text('Recommended \nFor You'),
         centerTitle: true,
-        titleTextStyle: TextStyle(fontSize: 28, fontFamily: 'BreeSerif'),
-        backgroundColor: Colors.blue[600],
+        titleTextStyle: TextStyle(fontSize: 30, fontFamily: 'BoldMontserrat', fontWeight: FontWeight.bold,
+        color: Color.fromARGB(255, 138, 105, 81)),
+        backgroundColor: Color.fromARGB(255, 253, 235, 218),
         actions: [
           IconButton(
             onPressed: () {
@@ -58,17 +62,17 @@ class _Feed extends State<Feed> {
                 },
               );
             },
-            icon: const Icon(Icons.sort),
+            icon: const Icon(Icons.sort, color: Colors.brown, size: 35),
           )
         ],
       ),
       body: ListView(
         children: [
-          Text(_groupOrders.length.toString()),
+
           ..._groupOrders.map((e) => GroupCardWidget(groupOrder: e)).toList(),
           ..._deals.where((cat) =>
               cat.categories.any((i) => _selectedCategories.contains(i))
-          ).map((e) => CardWidget(deal: e)).toList()
+          ).map((e) => Card2(deal: e)).toList()
         ],
       ),
     );
