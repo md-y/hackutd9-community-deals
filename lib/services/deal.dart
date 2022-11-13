@@ -84,9 +84,15 @@ class Deal {
     int? radius,
   }) async {
     var query = _getDealCollection().where(
-      'categories',
-      arrayContainsAny: categories,
+      'endDate',
+      isGreaterThanOrEqualTo: DateTime.now(),
     );
+    if (categories.isNotEmpty) {
+      query = query.where(
+        'categories',
+        arrayContainsAny: categories,
+      );
+    }
     var res = await query.get();
     var docs = res.docs;
 
