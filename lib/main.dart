@@ -7,8 +7,6 @@ import 'package:hackutd9/widgets/feed_floating_button.dart';
 import 'package:hackutd9/widgets/friend_floating_button.dart';
 import 'firebase_options.dart';
 
-const String username = 'John Doe';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(

@@ -6,7 +6,7 @@ class Deal {
   String id, item, discount, posterName;
   int price;
   List<String> categories;
-  Duration duration;
+  DateTime endDate;
   GeoPoint location;
   Timestamp creationTime;
 
@@ -15,7 +15,7 @@ class Deal {
     required this.item,
     required this.discount,
     required this.price,
-    required this.duration,
+    required this.endDate,
     required this.location,
     required this.creationTime,
     required this.posterName,
@@ -33,7 +33,7 @@ class Deal {
       categories: listString,
       creationTime: data['creationTime'],
       discount: data['discount'],
-      duration: Duration(minutes: data['duration']),
+      endDate: data['endDate'],
       item: data['item'],
       location: data['location'],
       posterName: data['posterName'],
@@ -48,7 +48,7 @@ class Deal {
   static Future<Deal> addDeal({
     required String item,
     required String discount,
-    required Duration duration,
+    required DateTime endDate,
     required GeoPoint location,
     required Timestamp creationTime,
     required String posterName,
@@ -58,7 +58,7 @@ class Deal {
     var res = await _getDealCollection().add({
       'item': item,
       'discount': discount,
-      'duration': duration.inMinutes,
+      'endDate': endDate,
       'location': location,
       'creationTime': creationTime,
       'posterName': posterName,
@@ -69,7 +69,7 @@ class Deal {
       id: res.id,
       item: item,
       discount: discount,
-      duration: duration,
+      endDate: endDate,
       location: location,
       creationTime: creationTime,
       posterName: posterName,
