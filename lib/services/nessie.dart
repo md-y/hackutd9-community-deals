@@ -6,6 +6,10 @@ import 'package:dio/dio.dart';
 class Nessie {
   static String? _apiKey;
 
+  static List<Map<String, dynamic>> _fixResponseData(List<dynamic>? resList) {
+    return resList?.map((e) => e as Map<String, dynamic>).toList() ?? [];
+  }
+
   static Future<String> getAPIKey() async {
     if (_apiKey != null) return _apiKey!;
     var query = FirebaseFirestore.instance.collection('meta').doc('secrets');
@@ -26,9 +30,7 @@ class Nessie {
         },
       ),
     );
-    List<Map<String, dynamic>>? customers =
-        res.data?.map((e) => e as Map<String, dynamic>).toList();
-    return customers ?? [];
+    return _fixResponseData(res.data);
   }
 
   static Future<void> transferMoney(
@@ -53,6 +55,33 @@ class Nessie {
         ),
       ),
     );
-    // print(res.data);
+  }
+
+  static Future<void> resetData(String category) async {
+    var apiKey = await getAPIKey();
+    await Dio().fetch(
+      RequestOptions(
+        path: 'http://api.nessieisreal.com/data',
+        queryParameters: {
+          'key': apiKey,
+          'type': category,
+        },
+        method: 'DELETE',
+      ),
+    );
+  }
+
+  static Future<List<Map<String, dynamic>>> getAllTansfers(
+      String account) async {
+    var apiKey = await getAPIKey();
+    var res = await Dio().fetch(
+      RequestOptions(
+        path: 'http://api.nessieisreal.com/accounts/$account/transfers',
+        queryParameters: {
+          'key': apiKey,
+        },
+      ),
+    );
+    return _fixResponseData(res.data);
   }
 }

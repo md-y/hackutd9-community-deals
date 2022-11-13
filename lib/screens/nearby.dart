@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hackutd9/services/deal.dart';
-import 'package:hackutd9/widgets/card_widget.dart';
 
 class Nearby extends StatefulWidget {
   const Nearby({super.key});
@@ -39,14 +37,14 @@ class _NearbyState extends State<Nearby> {
                       return AlertDialog(
                         contentPadding: EdgeInsets.zero,
                         content: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: MediaQuery.of(context).size.height * 0.15,
-                          child: Stack(children: [
-                            Positioned(
-                              left: MediaQuery.of(context).size.width * -0.1,
-                              child: CardWidget(deal: deal),
-                            )
-                          ]),
+                          height: MediaQuery.of(context).size.height * 0.1,
+                          child: Column(
+                            children: [
+                              Text(deal.item),
+                              Text('Original Price: \$${deal.price}'),
+                              Text('Discount: ${deal.discount}'),
+                            ],
+                          ),
                         ),
                         actions: [
                           TextButton(
