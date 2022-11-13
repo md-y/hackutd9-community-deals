@@ -24,6 +24,8 @@ class _NearbyState extends State<Nearby> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Your Nearby Deals'),
+          centerTitle: true,
+          titleTextStyle: TextStyle(fontSize: 25),
           backgroundColor: Colors.blue[700],
         ),
         body: GoogleMap(
