@@ -69,12 +69,12 @@ class _NearbyState extends State<Nearby> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Nearby Deals'),
-        centerTitle: true,
-        titleTextStyle: TextStyle(fontSize: 25, fontFamily: 'BreeSerif'),
-        backgroundColor: Colors.blue[600],
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Nearby Deals'),
+      //   centerTitle: true,
+      //   titleTextStyle: TextStyle(fontSize: 25, fontFamily: 'BreeSerif'),
+      //   backgroundColor: Colors.blue[600],
+      // ),
       body: GoogleMap(
         onMapCreated: _onMapCreated,
         initialCameraPosition: CameraPosition(

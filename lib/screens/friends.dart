@@ -20,7 +20,18 @@ class _FriendsState extends State<Friends> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
+    return Scaffold(
+        backgroundColor: Color.fromARGB(255, 253, 235, 218),
+    appBar: AppBar(
+    elevation: 0,
+    title: const Text('Friends'),
+    centerTitle: true,
+    titleTextStyle: TextStyle(fontSize: 30, fontFamily: 'BoldMontserrat', fontWeight: FontWeight.bold,
+    color: Color.fromARGB(255, 138, 105, 81)),
+    backgroundColor: Color.fromARGB(255, 253, 235, 218),
+    ),
+
+      body: FutureBuilder(
       future: _namesFuture,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
@@ -38,6 +49,7 @@ class _FriendsState extends State<Friends> {
           );
         }
       },
+    ),
     );
   }
 }
