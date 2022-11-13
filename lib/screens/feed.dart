@@ -13,7 +13,7 @@ class Feed extends StatefulWidget {
 }
 
 class _Feed extends State<Feed> {
-  late Future<List<Deal>> deals;
+  late Future<List<Deal>> deals = Deal.getDeals();
   List<String> _selectedCategories = Categories.values;
 
   @override
