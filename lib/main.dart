@@ -59,22 +59,26 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: _pageFloatingButtons[_pageIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _pageIndex,
+        selectedFontSize: 15,
         selectedItemColor: Theme.of(context).primaryColor,
         onTap: (value) => setState(() {
           _pageIndex = value;
         }),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home, size: 60, color: Colors.blue),
             label: 'Feed',
+
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pin_drop),
+            icon: Icon(Icons.pin_drop, size: 60, color: Colors.blue),
             label: 'Nearby Deals',
+
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people),
+            icon: Icon(Icons.people, size: 60, color: Colors.blue),
             label: 'Friends',
+
           ),
         ],
       ),
