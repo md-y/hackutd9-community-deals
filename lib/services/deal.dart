@@ -6,9 +6,8 @@ class Deal {
   String id, item, discount, posterName;
   int price;
   List<String> categories;
-  DateTime endDate;
   GeoPoint location;
-  Timestamp creationTime;
+  Timestamp creationTime, endDate;
 
   Deal({
     required this.id,
@@ -48,7 +47,7 @@ class Deal {
   static Future<Deal> addDeal({
     required String item,
     required String discount,
-    required DateTime endDate,
+    required Timestamp endDate,
     required GeoPoint location,
     required Timestamp creationTime,
     required String posterName,

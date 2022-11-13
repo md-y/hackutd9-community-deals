@@ -131,7 +131,7 @@ class _AddDealState extends State<AddDeal> {
     var deal = await Deal.addDeal(
       item: _item,
       discount: _discount,
-      endDate: _endDate,
+      endDate: Timestamp.fromDate(_endDate),
       location: GeoPoint(_latitude, _longitude),
       creationTime: Timestamp.now(),
       posterName: User.username,
