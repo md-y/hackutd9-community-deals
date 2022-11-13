@@ -58,6 +58,15 @@ class CardWidget extends StatefulWidget {
 
         Column(
           children: <Widget>[
+
+            Column(
+              children: <Widget>[
+                Text(
+                    ' '
+                ),
+              ],
+            ),
+
             SizedBox(
                 width: 225,
                 child: Text(
