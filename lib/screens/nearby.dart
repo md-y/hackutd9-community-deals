@@ -25,7 +25,7 @@ class _NearbyState extends State<Nearby> {
         appBar: AppBar(
           title: const Text('Nearby Deals'),
           centerTitle: true,
-          titleTextStyle: TextStyle(fontSize: 25),
+          titleTextStyle: TextStyle(fontSize: 25, fontFamily: 'BreeSerif'),
           backgroundColor: Colors.blue[600],
         ),
         body: GoogleMap(

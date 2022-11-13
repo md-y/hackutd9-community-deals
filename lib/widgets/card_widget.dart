@@ -23,7 +23,7 @@ class CardWidget extends StatefulWidget {
       children: <Widget>[
 
         Container(
-            margin: EdgeInsets.fromLTRB(50, 90, 0, 0)
+            margin: EdgeInsets.fromLTRB(30, 90, 0, 0)
         ),
 
         Container(
@@ -67,12 +67,21 @@ class CardWidget extends StatefulWidget {
               ],
             ),
 
+            Column(
+              children: <Widget>[
+                Text(
+                    ' '
+                ),
+              ],
+            ),
+
             SizedBox(
                 width: 225,
                 child: Text(
-                    "Price: \$${widget.deal.price.toString()}",
+                    "Original Price: \$${widget.deal.price.toString()}",
                     style: TextStyle(
                       fontSize: 25,
+                      fontFamily: 'BreeSerif'
                     )
                 )
             ),
